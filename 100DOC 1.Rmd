@@ -1,0 +1,119 @@
+---
+title: "100 Days of Code, Day 1"
+author: "Subah Nuzhat"
+date: "2023-07-20"
+output: html_document
+---
+
+This is a R markdown file:
+
+
+```{r}
+#this is a code snippet
+#comments like this are ignored
+#insert code chunks with Ctrl+Alt+I
+```
+You can find a list of existing data sets in R for practice https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html 
+
+<span style="color:red;">Good Luck!</span>
+
+### Assignment
+Everything that exists in R is an object. We create R objects by using the assignment operator: <-
+```{r}
+a <- 9 # the number 1 has been assigned to the variable a
+b <- 8
+c <- 17
+
+```
+
+### Arithmatic
+```{r}
+
+a + 3 #add
+b - 2 #subtract
+4*5 #multiply
+100/c # divide
+2**3 # raise to a power
+a %% b	#Modular arithmetic - to find out modulus
+
+```
+
+### DATA TYPES:
+* Numeric
+* Integers
+* Character
+* Logical
+* Complex
+* Data structures
+```{r}
+class(1)
+class("down")
+```
+
+### VECTORS 
+Vectors are lists of values; to create a vector:
+```{r}
+codes <- c(380, 124, 818)
+country <- c("italy", "canada", "egypt")
+
+# named vectors
+codes <- c(italy = 380, canada = 124, egypt = 818)
+#OR
+names(codes) <- country
+
+```
+
+Create index
+```{r}
+codes[2] #second index
+codes[c(1,3)] #multiple index
+codes[1:2] #multiple index in series
+codes["canada"] #index with name
+codes[c("egypt","italy")] #index with name, multiple
+
+```
+
+### Create Sequences
+```{r}
+1:80 # OR
+seq(1, 80, 2)  
+```
+### Dataframes:
+Tables are represented as data frames in R. \n
+R has pre-built data sets:
+
+```{r}
+data("DNase")
+```
+To find the structure of the data
+```{r}
+str(DNase)
+```
+Show first six lines of the data set:
+```{r}
+head(DNase)
+```
+Find the table names
+```{r}
+names(DNase)
+```
+
+##### Accessor $
+Access a specific column from the data
+```{r}
+concentration <- DNase$conc
+#or
+concentration <- DNase[['conc']]
+length(concentration) # tells us how many objects are in the column
+class(concentration)
+
+DNase[1,3]#select particular value
+DNase[1,] #selects entire row 1
+DNase[,1] #selects column 1
+
+### Selection using logical Operation ###
+
+```
+
+
+###SORTING

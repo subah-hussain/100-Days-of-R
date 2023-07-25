@@ -1,0 +1,21 @@
+---
+title: "Untitled"
+author: "Subah Nuzhat"
+date: "2023-07-23"
+output: html_document
+---
+
+https://data-flair.training/blogs/r-numeric-and-character-functions/
+
+### Create Matrix with R
+```{r}
+mat1 <- matrix(1:4, nrow = 3, ncol = 4) 
+mat2 <- matrix(1:5, nrow = 3, ncol = 4)
+mat1
+mat2
+#indexing in matrix
+mat1[1,2]
+#Matrix arithmetic
+mat1 + mat2
+```
+
