@@ -20,7 +20,7 @@ You can find a list of existing data sets in R for practice https://stat.ethz.ch
 ### Assignment
 Everything that exists in R is an object. We create R objects by using the assignment operator: <-
 ```{r}
-a <- 9 # the number 1 has been assigned to the variable a
+a <- 909 # the number 1 has been assigned to the variable a
 b <- 8
 c <- 17
 
@@ -32,9 +32,10 @@ c <- 17
 a + 3 #add
 b - 2 #subtract
 4*5 #multiply
-100/c # divide
+a/b # divide
 2**3 # raise to a power
-a %% b	#Modular arithmetic - to find out modulus
+a %% b	#Modular arithmetic - to find out remainder
+a%/%b #gets dividend
 
 ```
 
@@ -116,4 +117,3 @@ DNase[,1] #selects column 1
 ```
 
 
-###SORTING
