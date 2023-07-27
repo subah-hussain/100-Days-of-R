@@ -1,0 +1,16 @@
+---
+title: "Intro to Data Science Ch 2, 3"
+author: "Subah Nuzhat"
+date: "2023-07-27"
+output: html_document
+---
+Taken from: https://rafalab.dfci.harvard.edu/dsbook/
+library(murder)
+```{r}
+library(dslabs)
+data("murders")
+sort(murders$total)
+order(murders$total)
+
+murders$region[order(murders$total)]
+```

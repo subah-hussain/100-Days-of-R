@@ -1,0 +1,101 @@
+---
+title: "100 Days of Code Day 3"
+author: "Subah Nuzhat"
+date: "2023-07-26"
+output: html_document
+---
+# DATA
+Data set used today: https://www.kaggle.com/datasets/uom190346a/sleep-health-and-lifestyle-dataset
+
+### R has pre-existing data sets
+```{r}
+#lists all the data sets present in R
+data(package = .packages(all.available = TRUE))
+```
+
+### Let's load the sleep data (csv file)
+```{r}
+
+sleep_data <- read.csv(file ="Sleep_health_and_lifestyle_dataset.csv", header = TRUE,stringsAsFactors=FALSE )
+#header = TRUE tells R that the first row contains headers
+#stringsAsFactors turns strings into factors, the default is TRUE
+
+#Structure of the data
+str(sleep_data)
+
+#short summary
+head(sleep_data)
+#tells us the dimension of the data
+dim(sleep_data)
+
+sleep_data[1:10, ] #first 10 lines
+
+names(sleep_data) #column names
+
+summary(sleep_data) #summarises information about the data
+```
+
+###### boxplots:
+```{r}
+steps <- sleep_data$Daily.Steps
+boxplot(steps)
+
+#average steps
+mean(steps)
+median(steps)
+```
+Let's look at the type of profession the individual's in the data have
+```{r}
+prof <- unique(sleep_data$Occupation)
+prof
+```
+Let's look at the age of the individuals
+```{r}
+ages <- sleep_data$Age
+unique(ages) 
+
+### Take a look at the youngest participant
+
+youngest <- which.min(ages) #index of youngest participant
+youngest_age_1 <- sleep_data$Age[youngest] # returns age of youngest participant
+
+youngest_age_2 <- min(ages) #youngest participant's age
+
+youngest_age_1 == youngest_age_2
+
+# we found two ways to look for the smallest value, the same can be done for the largest value (i.e. oldest participent)
+
+oldest <- which.max(ages) #index of oldest participant
+oldest_1 <- sleep_data$Age[oldest]
+oldest_2 <- max(ages) #oldest participants
+oldest_1 == oldest_2
+```
+
+### Sorting
+lets sort the dataframe based on Sleep Duration
+```{r}
+sleep_duration_sorted <-sort(sleep_data$Sleep.Duration) #sorts values in the sleep duration column and returns it
+sleep_duration_sorted #numeric
+
+
+# the order function returns indexes of each row if the entire column was sorted (returns the index that sorts input vector)
+sleep_duration_ordered <- order(sleep_data$Sleep.Duration)
+sleep_duration_ordered
+
+# Rank Function - For any given vector it returns a vector with the rank of the first entry, second entry, etc., of the input vector.
+
+rank(sleep_data$Sleep.Duration)
+
+```
+
+
+
+
+let's select doctors under the age of 35
+```{r}
+doctor <- sleep_data$Occupation == "Doctor"
+under_35 <- sleep_data$Age >= 35
+```
+
+
+
