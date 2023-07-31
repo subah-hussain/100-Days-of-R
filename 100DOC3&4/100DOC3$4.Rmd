@@ -94,8 +94,41 @@ rank(sleep_data$Sleep.Duration)
 let's select doctors under the age of 35
 ```{r}
 doctor <- sleep_data$Occupation == "Doctor"
-under_35 <- sleep_data$Age >= 35
+under_35 <- sleep_data$Age <= 35
+ind <- which(doctor & under_35)
+doctors_under_35 <- sleep_data[ind, ]
 ```
 
+Let's subset the doctors_under_35 data set to have fewer columns so that it is easier to read, 
 
+```{r}
+doctors_subset <- doctors_under_35[, c(1, 2, 5, 6, 9:11 )]
+names(doctors_subset) #the columns present in this data frame
+```
+Create separate columns for diastolic and systolic pressure
+```{r}
+doctors_subset <- mutate(doctors_subset, systolic = as.integer(substr(doctors_subset$Blood.Pressure, 1, 3)))
 
+doctors_subset <- mutate(doctors_subset, diastolic = as.integer(substr(doctors_subset$Blood.Pressure, 5, 6)))
+
+#removing the Blood.Pressure column
+doctors_subset <- doctors_subset[-6] 
+
+#confirm that all the new columns have been added
+names(doctors_subset)
+
+```
+
+Let's see if any of the doctors under the age of 35 have high blood pressure
+
+```{r}
+# But first let's look at the different values in the table
+unique(doctors_subset$systolic)
+# so apparently they either have a systolic blood pressure of 120 or 125
+
+```
+Does anyone have low diastolic pressure?
+```{r}
+unique(doctors_subset$diastolic) 
+# 80
+```

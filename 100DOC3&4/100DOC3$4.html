@@ -612,7 +612,9 @@ rank(sleep_data$Sleep.Duration)</code></pre>
 ## [373] 324.0 324.0</code></pre>
 <p>let’s select doctors under the age of 35</p>
 <pre class="r"><code>doctor &lt;- sleep_data$Occupation == &quot;Doctor&quot;
-under_35 &lt;- sleep_data$Age &gt;= 35</code></pre>
+under_35 &lt;- sleep_data$Age &lt;= 35
+ind &lt;- which(doctor &amp; under_35)
+doctors_under_35 &lt;- sleep_data[ind, ]</code></pre>
 </div>
 </div>
 
